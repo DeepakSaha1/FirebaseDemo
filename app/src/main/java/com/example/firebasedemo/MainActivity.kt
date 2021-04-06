@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
         appPackageName()
 
         findViewById<Button>(R.id.btn_track_event).setOnClickListener {
-            setUpUserProperty()
-            setUserId()
+//            setUpUserProperty()
+//            setUserId()
+//            setDefaultParameters()
             logEvent()
         }
     }
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             putBoolean("PURCHASE_BUTTON_CLICK", true)
             putBoolean(FirebaseAnalytics.Param.SUCCESS, true)
         }
-        setDefaultParameters()
+//        setDefaultParameters()
         firebaseAnalytics.logEvent(eventName, bundle)
 
         // custom event
@@ -62,9 +63,12 @@ class MainActivity : AppCompatActivity() {
         val parameters = Bundle().apply {
             putString(FirebaseAnalytics.Param.LOCATION, "INDIA")
             putString(FirebaseAnalytics.Param.CURRENCY, "INR")
+            putString("default_test", "some_data")
         }
 
         firebaseAnalytics.setDefaultEventParameters(parameters)
+////        to reset
+//        firebaseAnalytics.setDefaultEventParameters(null)
     }
 
     private fun setUpUserProperty() {
